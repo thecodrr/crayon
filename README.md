@@ -18,10 +18,12 @@ Install using `vpkg`
 vpkg get https://github.com/thecodrr/crayon
 ```
 
-Install using v's builtin vpm:
+Install using v's builtin vpm (you will need to import the module with: `import thecodrr.crayon` with this method of installation):
 ```bash
 v install thecodrr.crayon
 ```
+
+
 
 Install using `git`:
 
