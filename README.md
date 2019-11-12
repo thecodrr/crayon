@@ -12,12 +12,18 @@ An extremely simple way to turn your bland terminal output into beautifully styl
 
 ## Installation:
 
-Install using `vpkg` or `vpm` **(not available currently)**
+Install using `vpkg`
 
 ```bash
 vpkg get https://github.com/thecodrr/crayon
-vpm get https://github.com/thecodrr/crayon crayon
 ```
+
+Install using v's builtin vpm (you will need to import the module with: `import thecodrr.crayon` with this method of installation):
+```bash
+v install thecodrr.crayon
+```
+
+
 
 Install using `git`:
 
