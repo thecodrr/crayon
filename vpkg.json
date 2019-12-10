@@ -1,6 +1,6 @@
 {
   "name": "crayon",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": ["thecodrr <thecodrr@protonmail.com>"],
   "repo": "https://github.com/thecodrr/crayon",
   "sources": ["https://v-pkg.github.io/registry/"],
