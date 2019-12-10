@@ -1,5 +1,5 @@
 <div align="center">
-<h1>🖍️ Crayon</h1>
+<h1 align="center">🖍️ Crayon</h1>
 </div>
 
 <p align="center">
@@ -141,9 +141,12 @@ The `template` API uses these same names just without the `()` except for the `r
 
 `print_with(...string)`Print the styled `string` to terminal with some additional `strings`
 
+### Projects Using Crayon:
+1. [thecodrr.boxx](https://github.com/thecodrr/boxx)
+
 ### Find this library useful? :heart:
 
-Support it by joining **[stargazers](https://github.com/thecodrr/crayon/stargazers)** for this repository. :star:or [buy me a cup of coffee]([https://ko-fi.com/thecodrr](https://ko-fi.com/thecodrr)
+Support it by joining **[stargazers](https://github.com/thecodrr/crayon/stargazers)** for this repository. :star: or [buy me a cup of coffee](https://ko-fi.com/thecodrr)
 And **[follow](https://github.com/thecodrr)** me for my next creations! 🤩
 
 # License
