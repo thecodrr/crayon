@@ -114,11 +114,11 @@ pub fn color(text string) string {
    a stripped string
 */
 pub fn strip_text(text string) string{
-	start_index := text.index("\e[")
+	start_index := text.index("\e[") or {return text}
 	end_index := text.index_after("m", start_index) + 1
 
 	if start_index >= 0 && end_index >= 0 {
-		return strip_text(text.replace(text.substr(start_index, end_index), ""))
+		return strip_text(text.replace(text[start_index..end_index], ""))
 	}
 	return text
 }

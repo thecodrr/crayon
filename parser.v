@@ -7,15 +7,16 @@ fn parse(text string, index int) string {
 	mut end_index := text.index_after("}", start_index)
 	
 	if start_index >= 0 && end_index > 0 {
-		count := num_of_chars(text.substr(end_index, text.len), `}`)
+		count := num_of_chars(text[end_index..text.len], `}`)
 		if count > 1 {end_index += count - 1}
 
-		template := text.substr(start_index + 1, end_index)
+		template := text[start_index + 1..end_index]
 		if template.len <= 0 {
 			return parse(text, end_index) //move on
 		}
-		styles := template.substr(0, template.index(" ")).split(".")
-		str := template.substr(template.index(" ") + 1, template.len)
+		template_index := template.index(" ") or {return text}
+		styles := template[0..template_index].split(".")
+		str := template[template_index + 1..template.len]
 
 		mut c := new(str)
 		fg := fg_colors.keys()
@@ -29,7 +30,8 @@ fn parse(text string, index int) string {
 			} else if s in st{
 				c = c.stylize(s)
 			} else if s.starts_with("rgb(") || s.starts_with("bg_rgb("){
-				tag := s.substr(0, s.index("("))
+				paren_index := s.index("(") or {break}
+				tag := s[0..paren_index]
 				r,g,b := parse_rgb(s, tag)
 				if r < 0 || g < 0 || b < 0 {
 					println("Wrong number of arguments in call to '$tag(int,int,int)'")
@@ -42,7 +44,7 @@ fn parse(text string, index int) string {
 			}
 		}
 		next_index := text.last_index(reset)
-		return parse(text.replace(text.substr(start_index, end_index + 1), c.str()), next_index)
+		return parse(text.replace(text[start_index..end_index + 1], c.str()), next_index)
 	}
 	return text
 }
