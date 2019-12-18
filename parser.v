@@ -42,7 +42,9 @@ fn parse(text string, index int) string {
 				return text
 			}
 		}
-		next_index := text.last_index(reset)
+		next_index := text.last_index(reset) or {
+			return parse(text.replace(text[start_index..end_index + 1], c.str()), -1)
+		}
 		return parse(text.replace(text[start_index..end_index + 1], c.str()), next_index)
 	}
 	return text
