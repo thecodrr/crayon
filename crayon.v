@@ -41,9 +41,9 @@ pub fn (c Crayon) str() string {
 	params += "m"
 
 	format := '$params{text}'
-	mut output := []string
+	mut output := []string{}
 	for i, text in c.text {
-		if(text.starts_with("\e")){
+		if text.starts_with("\e") {
 			output << reset
 			output << text
 			if i < c.text.len - 1{output << params}
