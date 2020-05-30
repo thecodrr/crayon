@@ -19,7 +19,7 @@ fn (c &Crayon) stylize(s string) &Crayon {
 }
 
 fn arr(args ...string)[]string{
-	mut output := []string
+	mut output := []string{}
 	for arg in args{
 		output << arg
 	}
