@@ -3,7 +3,7 @@ module crayon
 import term
 
 struct Crayon{
-	mut:
+mut:
 	text []string
 	bg string
 	fg string
@@ -16,11 +16,11 @@ struct Crayon{
    @returns
    a pointer to the newly created Crayon
 */
-pub fn new(texts ...string) &Crayon{
+pub fn new(texts ...string) Crayon{
 	if !term.can_show_color_on_stdout(){
 		println("Your terminal does not support colors. Please use a terminal that supports escape sequences for the best experience.")
 	}
-	return &Crayon{text: arr(texts)}
+	return {text: texts}
 }
 
 
@@ -58,7 +58,7 @@ pub fn (c Crayon) str() string {
    @returns
    the stripped text
 */
-pub fn (c &Crayon) strip() string {
+pub fn (c Crayon) strip() string {
 	return strip_text(c.text.join(" "))
 }
 
@@ -66,7 +66,7 @@ pub fn (c &Crayon) strip() string {
    @returns
    the length
 */
-pub fn (c &Crayon) len() int {
+pub fn (c Crayon) len() int {
 	return c.strip().len
 }
 
@@ -86,9 +86,9 @@ pub fn (c Crayon) print() {
    @usage
    `crayon.new("hello").cyan().bold().print_with("I come after", "I come even after that")`
 */
-pub fn (c &Crayon) print_with(texts ...string) {
+pub fn (c Crayon) print_with(texts ...string) {
 	if texts.len > 0 {
-		text_joined := arr(texts).join(" ")
+		text_joined := texts.join(" ")
 		println(c.str() + " " + text_joined)
 	} else {
 		println(c.str())

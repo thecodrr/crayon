@@ -65,8 +65,8 @@ fn parse_rgb(s string, name string) (int,int,int){
 	if clrs.len != 3 {
 		return -1,-1,-1
 	}
-	r := strconv.atoi(clrs[0])
-	g := strconv.atoi(clrs[1])
-	b := strconv.atoi(clrs[2])
+	r := strconv.atoi(clrs[0]) or {0}
+	g := strconv.atoi(clrs[1]) or {0}
+	b := strconv.atoi(clrs[2]) or {0}
 	return r,g,b
 }
