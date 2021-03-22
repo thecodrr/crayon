@@ -1,5 +1,10 @@
 module crayon
 
+fn test_crayon() {
+	result := new("Hello world").bold().str()
+	assert result == "\e[1mHello world\e[0m"
+}
+
 fn test_template(){
 	assert color("{bold Hello world}") == "\e[1mHello world\e[0m"
 	assert color("{bold.cyan Hello world}") == "\e[36;1mHello world\e[0m"
