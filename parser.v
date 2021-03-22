@@ -23,18 +23,11 @@ fn parse(text string, index int) string {
 		st := style.keys()
 		for _, s in styles {
 			if s in fg {
-				println('precolorize: $s')
 				c = c.colorize(s)
-				println('aftercolorize: ${c.str()}')
 			} else if s in bg {
-				println('prebgcolorize: $s')
 				c = c.bg_colorize(s)
-				println('afterbgcolorize: ${c.str()}')
 			} else if s in st{
-				println('prestylize: $s')
 				c = c.stylize(s)
-				println('afterstylize: ${c.text}')
-				println(c.str())
 			} else if s.starts_with("rgb(") || s.starts_with("bg_rgb("){
 				paren_index := s.index("(") or {break}
 				tag := s[0..paren_index]
