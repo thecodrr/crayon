@@ -1,14 +1,14 @@
 module crayon
 
 fn (c Crayon) colorize(color string) Crayon {
-	return {
+	return Crayon{
 		...c
 		fg: fg_colors[color].str()
 	}
 }
 
 fn (c Crayon) bg_colorize(color string) Crayon {
-	return {
+	return Crayon{
 		...c
 		bg: bg_colors[color].str()
 	}
@@ -17,7 +17,7 @@ fn (c Crayon) bg_colorize(color string) Crayon {
 fn (c Crayon) stylize(s string) Crayon {
 	mut stl := c.style
 	stl << style[s].str()
-	return {
+	return Crayon{
 		...c
 		style: stl
 	}
