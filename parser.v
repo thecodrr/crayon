@@ -50,7 +50,7 @@ fn parse(text string, index int) string {
 				return text
 			}
 		}
-		next_index := text.last_index(reset) or {
+		next_index := text.index_last(reset) or {
 			return parse(text.replace(text[start_index..end_index + 1], c.str()), -1)
 		}
 		return parse(text.replace(text[start_index..end_index + 1], c.str()), next_index)
@@ -58,7 +58,7 @@ fn parse(text string, index int) string {
 	return text
 }
 
-fn num_of_chars(text string, c byte) int {
+fn num_of_chars(text string, c u8) int {
 	mut i := 0
 	for t in text {
 		if t == c {

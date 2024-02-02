@@ -15,10 +15,12 @@ fn (c Crayon) bg_colorize(color string) Crayon {
 }
 
 fn (c Crayon) stylize(s string) Crayon {
-	mut stl := c.style
-	stl << style[s].str()
-	return Crayon{
-		...c
-		style: stl
+	unsafe{
+		mut stl := c.style
+		stl << style[s].str()
+		return Crayon{
+			...c
+			style: stl
+		}
 	}
 }
